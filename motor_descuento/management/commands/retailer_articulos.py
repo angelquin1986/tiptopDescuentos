@@ -38,3 +38,5 @@ class Command(BaseCommand):
                     product_retailer_list.append(stock_item)
                     i = i + 1
         ln_articulo.crear_retailer_product_list(product_retailer_list)
+
+

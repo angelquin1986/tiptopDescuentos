@@ -11,14 +11,26 @@ from django.test import TestCase
 # Creamos una clase heredando de TestCase
 from motor_descuento.logica_negocio import ln_articulo as ln_articulo
 from motor_descuento.modelo.modelo_productos import Product
+from motor_descuento.test import util_test
 
 
 class TestArticulos(TestCase):
+    fixtures = ['db.json']
+
+    def setUp(self):
+        util_test.product();
+        util_test.stok_items()
 
     # Creamos una prueba para probar un valor inicial
     @pytest.mark.django_db
     def test_crear_articulos(self):
-        pass
+        categorias_list = list(ln_articulo.consultar_categoria_id_list())
+        producto_list = list(ln_articulo.consultar_product_id_list())
+        stok_list = list(ln_articulo.consultar_stock_id_list())
+
+        print(categorias_list)
+        print(producto_list)
+        print(stok_list)
         brand_id_list = [1, 2, 3, 4, 5]
         # product_list = []
         # is_create = False

@@ -4,7 +4,7 @@ Loginca de negocio para  articulos
 """
 from django.db import transaction
 
-from motor_descuento.modelo.modelo_productos import Product,Categorie
+from motor_descuento.modelo.modelo_productos import Product, Categorie
 from motor_descuento.modelo.modelo_retailer import StockItem
 
 
@@ -34,7 +34,21 @@ def crear_retailer_product_list(stock_item_list):
 
 
 def consultar_product_id_list():
+    """
+    consultar product id
+    :return:
+    """
     return Product.objects.values_list('id', flat=True)
 
+
+def consultar_stock_id_list():
+    """
+    consultar product id
+    :return:
+    """
+    return StockItem.objects.values_list('id', flat=True)
+
+
 def consultar_categoria_id_list():
+    """consultar categoria"""
     return Categorie.objects.values_list('id', flat=True)
