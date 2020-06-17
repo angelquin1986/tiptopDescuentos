@@ -17,8 +17,8 @@ class Client(models.Model):
 
 class PrimeSuscription(models.Model):
     name = models.CharField(max_length=50)
-    vality = models.IntegerField
-    vality_type = models.CharField(max_length=50)
+    vality = models.IntegerField(null=True)
+    vality_type = models.CharField(max_length=50,null=True)
     enabled = models.BooleanField(default=True)
 
     class Meta:
@@ -28,7 +28,7 @@ class PrimeSuscription(models.Model):
 class ClientPrimeSuscription(models.Model):
     prime_suscription = models.ForeignKey(PrimeSuscription, on_delete=models.CASCADE)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
-    activation_date = models.DateField()
+    activation_date = models.DateField(null=True)
     suscription_state = models.BooleanField(default=True)
 
     class Meta:

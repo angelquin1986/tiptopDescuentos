@@ -19,16 +19,16 @@ class ShoopingCar(models.Model):
 class ShoopingCarItems(models.Model):
     shooping_car = models.ForeignKey(ShoopingCar, on_delete=models.CASCADE)
     stock_item = models.ForeignKey(StockItem, on_delete=models.CASCADE)
-    quantity = models.IntegerField()
-    note_for_shopper = models.TextField()
+    quantity = models.IntegerField(null=True)
+    note_for_shopper = models.TextField(null=True)
 
     class Meta:
         db_table = 'shooping_car_items'
 
 
 class ClientShoopingCar(models.Model):
-    date_joined = models.DateField()
-    menbers = models.IntegerField()
+    date_joined = models.DateField(null=True)
+    menbers = models.IntegerField(null=True)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
 
     class Meta:

@@ -54,6 +54,46 @@
   }
 },
 {
+  "model": "motor_descuento.primesuscription",
+  "pk": 1,
+  "fields": {
+    "name": "Prime Oro",
+    "vality": 1,
+    "vality_type": "Oro",
+    "enabled": true
+  }
+},
+{
+  "model": "motor_descuento.primesuscription",
+  "pk": 2,
+  "fields": {
+    "name": "Prime Plata",
+    "vality": 1,
+    "vality_type": "Plata",
+    "enabled": true
+  }
+},
+{
+  "model": "motor_descuento.clientprimesuscription",
+  "pk": 1,
+  "fields": {
+    "prime_suscription": 1,
+    "client": 1,
+    "activation_date": "2020-01-01",
+    "suscription_state": true
+  }
+},
+{
+  "model": "motor_descuento.clientprimesuscription",
+  "pk": 2,
+  "fields": {
+    "prime_suscription": 2,
+    "client": 3,
+    "activation_date": "2020-01-02",
+    "suscription_state": true
+  }
+},
+{
   "model": "motor_descuento.country",
   "pk": 1,
   "fields": {

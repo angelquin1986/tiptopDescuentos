@@ -1,9 +1,16 @@
 import decimal
 import random
 
+from django.db import connection
+
 from motor_descuento.logica_negocio import ln_articulo
 from motor_descuento.modelo.modelo_productos import Product
 from motor_descuento.modelo.modelo_retailer import StockItem
+
+
+def show_sql():
+    for query in connection.queries:
+        print(query['sql'])
 
 
 def product():

@@ -125,6 +125,17 @@ VALUES(5, 'Daniela', 'Palomo', 'mail5@gmail.comMegaMaxi');
 INSERT INTO public.client
 (id, "name", last_name, email)
 VALUES(6, 'Geovana', 'Black', 'mail5@gmail.comMegaMaxi');
-
-
-
+--prime subcription
+INSERT INTO public.prime_suscription
+(id, "name", vality_type, enabled, vality)
+VALUES(1, 'Prime Oro', 'Oro', true, 1);
+INSERT INTO public.prime_suscription
+(id, "name", vality_type, enabled, vality)
+VALUES(2, 'Prime Plata', 'Plata', true, 1);
+--cliente prime subcription
+INSERT INTO public.client_prime_suscription
+(id, activation_date, suscription_state, client_id, prime_suscription_id)
+VALUES(1, '2020-01-01', true, 1, 1);
+INSERT INTO public.client_prime_suscription
+(id, activation_date, suscription_state, client_id, prime_suscription_id)
+VALUES(2, '2020-01-02', true, 3, 2);
