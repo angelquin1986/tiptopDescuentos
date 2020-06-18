@@ -3,3 +3,5 @@ psycopg2-binary==2.8.5
 # psycopg2
 coverage
 pytest
+drf-yasg==1.17.1
+djangorestframework

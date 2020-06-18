@@ -1,0 +1,370 @@
+[
+{
+  "model": "motor_descuento.client",
+  "pk": 1,
+  "fields": {
+    "name": "Angel",
+    "last_name": "Quingaluisa",
+    "email": "mail1@gmail.comMegaMaxi"
+  }
+},
+{
+  "model": "motor_descuento.client",
+  "pk": 2,
+  "fields": {
+    "name": "Juan",
+    "last_name": "Rojas",
+    "email": "mail2@gmail.comMegaMaxi"
+  }
+},
+{
+  "model": "motor_descuento.client",
+  "pk": 3,
+  "fields": {
+    "name": "Pedro",
+    "last_name": "Maldonado",
+    "email": "mail3@gmail.comMegaMaxi"
+  }
+},
+{
+  "model": "motor_descuento.client",
+  "pk": 4,
+  "fields": {
+    "name": "Sandra",
+    "last_name": "Puliloma",
+    "email": "mail4@gmail.comMegaMaxi"
+  }
+},
+{
+  "model": "motor_descuento.client",
+  "pk": 5,
+  "fields": {
+    "name": "Daniela",
+    "last_name": "Palomo",
+    "email": "mail5@gmail.comMegaMaxi"
+  }
+},
+{
+  "model": "motor_descuento.client",
+  "pk": 6,
+  "fields": {
+    "name": "Geovana",
+    "last_name": "Black",
+    "email": "mail5@gmail.comMegaMaxi"
+  }
+},
+{
+  "model": "motor_descuento.primesuscription",
+  "pk": 1,
+  "fields": {
+    "name": "Prime Oro",
+    "vality": 1,
+    "vality_type": "Oro",
+    "enabled": true
+  }
+},
+{
+  "model": "motor_descuento.primesuscription",
+  "pk": 2,
+  "fields": {
+    "name": "Prime Plata",
+    "vality": 1,
+    "vality_type": "Plata",
+    "enabled": true
+  }
+},
+{
+  "model": "motor_descuento.clientprimesuscription",
+  "pk": 1,
+  "fields": {
+    "prime_suscription": 1,
+    "client": 1,
+    "activation_date": "2020-01-01",
+    "suscription_state": true
+  }
+},
+{
+  "model": "motor_descuento.clientprimesuscription",
+  "pk": 2,
+  "fields": {
+    "prime_suscription": 2,
+    "client": 3,
+    "activation_date": "2020-01-02",
+    "suscription_state": true
+  }
+},
+{
+  "model": "motor_descuento.country",
+  "pk": 1,
+  "fields": {
+    "name": "Ecuador",
+    "codigo": "593",
+    "lenguaje": "espa\u00f1ol",
+    "currency": "dolar"
+  }
+},
+{
+  "model": "motor_descuento.country",
+  "pk": 2,
+  "fields": {
+    "name": "Peru",
+    "codigo": "523",
+    "lenguaje": "espa\u00f1ol",
+    "currency": "peso"
+  }
+},
+{
+  "model": "motor_descuento.country",
+  "pk": 3,
+  "fields": {
+    "name": "Colombia",
+    "codigo": "486",
+    "lenguaje": "espa\u00f1ol",
+    "currency": "peso"
+  }
+},
+{
+  "model": "motor_descuento.province",
+  "pk": 1,
+  "fields": {
+    "name": "Pichincha",
+    "region": "Sierra",
+    "country": 1
+  }
+},
+{
+  "model": "motor_descuento.province",
+  "pk": 3,
+  "fields": {
+    "name": "Guayas",
+    "region": "Sierra",
+    "country": 2
+  }
+},
+{
+  "model": "motor_descuento.city",
+  "pk": 1,
+  "fields": {
+    "name": "Quito",
+    "province": 1
+  }
+},
+{
+  "model": "motor_descuento.city",
+  "pk": 2,
+  "fields": {
+    "name": "Cayambe",
+    "province": 1
+  }
+},
+{
+  "model": "motor_descuento.city",
+  "pk": 3,
+  "fields": {
+    "name": "Guayaquil",
+    "province": 3
+  }
+},
+{
+  "model": "motor_descuento.sector",
+  "pk": 1,
+  "fields": {
+    "name": "Chimbacalle",
+    "city": 1
+  }
+},
+{
+  "model": "motor_descuento.sector",
+  "pk": 2,
+  "fields": {
+    "name": "Solanda",
+    "city": 1
+  }
+},
+{
+  "model": "motor_descuento.sector",
+  "pk": 3,
+  "fields": {
+    "name": "Bicentenario",
+    "city": 1
+  }
+},
+{
+  "model": "motor_descuento.adrerss",
+  "pk": 1,
+  "fields": {
+    "name": "s7295",
+    "line_one": "paute",
+    "line_two": "sangay",
+    "sector": 1
+  }
+},
+{
+  "model": "motor_descuento.adrerss",
+  "pk": 2,
+  "fields": {
+    "name": "s2345",
+    "line_one": "cutuglagua",
+    "line_two": "s/a",
+    "sector": 2
+  }
+},
+{
+  "model": "motor_descuento.brand",
+  "pk": 1,
+  "fields": {
+    "name": "Nike"
+  }
+},
+{
+  "model": "motor_descuento.brand",
+  "pk": 2,
+  "fields": {
+    "name": "Adidas"
+  }
+},
+{
+  "model": "motor_descuento.brand",
+  "pk": 3,
+  "fields": {
+    "name": "Rokawear"
+  }
+},
+{
+  "model": "motor_descuento.brand",
+  "pk": 4,
+  "fields": {
+    "name": "Levis"
+  }
+},
+{
+  "model": "motor_descuento.brand",
+  "pk": 5,
+  "fields": {
+    "name": "New Era"
+  }
+},
+{
+  "model": "motor_descuento.categorie",
+  "pk": 1,
+  "fields": {
+    "name": "ropa",
+    "description": "ropa"
+  }
+},
+{
+  "model": "motor_descuento.categorie",
+  "pk": 2,
+  "fields": {
+    "name": "cosmeticos",
+    "description": "cosmeticos"
+  }
+},
+{
+  "model": "motor_descuento.categorie",
+  "pk": 3,
+  "fields": {
+    "name": "electrodomesticos",
+    "description": "electrodomesticos"
+  }
+},
+{
+  "model": "motor_descuento.subcategorie",
+  "pk": 2,
+  "fields": {
+    "name": "hombre",
+    "description": "hombre",
+    "categorie": 1
+  }
+},
+{
+  "model": "motor_descuento.subcategorie",
+  "pk": 3,
+  "fields": {
+    "name": "mujer",
+    "description": "mujer",
+    "categorie": 1
+  }
+},
+{
+  "model": "motor_descuento.subcategorie",
+  "pk": 4,
+  "fields": {
+    "name": "bisuteria",
+    "description": "bisuteria",
+    "categorie": 2
+  }
+},
+{
+  "model": "motor_descuento.subcategorie",
+  "pk": 5,
+  "fields": {
+    "name": "perfumeria",
+    "description": "perfumeria",
+    "categorie": 2
+  }
+},
+{
+  "model": "motor_descuento.subcategorie",
+  "pk": 6,
+  "fields": {
+    "name": "cocina",
+    "description": "cocina",
+    "categorie": 3
+  }
+},
+{
+  "model": "motor_descuento.subcategorie",
+  "pk": 7,
+  "fields": {
+    "name": "educacion",
+    "description": "educacion",
+    "categorie": 3
+  }
+},
+{
+  "model": "motor_descuento.retailer",
+  "pk": 1,
+  "fields": {
+    "name": "Aki",
+    "description": "AKi micro mercado",
+    "city": 1
+  }
+},
+{
+  "model": "motor_descuento.retailer",
+  "pk": 2,
+  "fields": {
+    "name": "Oki doki",
+    "description": "micromercado",
+    "city": 1
+  }
+},
+{
+  "model": "motor_descuento.retailer",
+  "pk": 3,
+  "fields": {
+    "name": "Oki doki",
+    "description": "micromercado",
+    "city": 2
+  }
+},
+{
+  "model": "motor_descuento.retailer",
+  "pk": 4,
+  "fields": {
+    "name": "mi comisariato",
+    "description": "micromercado",
+    "city": 3
+  }
+},
+{
+  "model": "motor_descuento.retailer",
+  "pk": 5,
+  "fields": {
+    "name": "Supermaxi",
+    "description": "Supermaxi",
+    "city": 2
+  }
+}
+]

@@ -113,6 +113,25 @@
    - La logica de negocio para el motor de descuento se encuentra en   motor_descuento/logica_negocio/ln_descuento.py
  ![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/ln.png)
  ### API TEST
+    Se entrega los siguientes rest
+   - http://127.0.0.1:8000/calcular-descuento
+        - Api encargado de calcular y retornar los  datos de decuento    dependiendo de la configuración
+        - Tipo POST
+        - Formato Entra
+            - Ejemplo: { "fecha_actual":"2019-04-10", "stock_item":[ { "product_id":14, "retailer_id":1 }, { "product_id":32, "retailer_id":1 }, { "product_id":43, "retailer_id":1 } ], "cliente_id":1, "codigo_forma_pago":1, "codigo_aplicacion":null }
+        - Formatos:  
+            - fecha_actual : "YYYY-MM-DD" :
+            - stock_item :  json que incluue product_id(id_producto) /retailer_id(id tienda)
+            - cliente_id :  id del cliente 
+            - codigo_forma_pago :forma de pago valores 1(efectivo) 2(Visa) 3(Mastercard)
+            - codigo_aplicacion :si  aplica codigo descuento colocar el mismo (String) caso contrario null
+        - Nota: para poder   utilizar los codigos de productos, retailer , cliente se debe validar en base de datos los registros creados en prueba, los mismo no sotro los mismo de  los test.
+        - Adjunto sql para ver stock de productos por tienda
+            - select p.id,p.name,r.id,r.name from stock_item s inner join product p on s.product_id =p.id inner join retailer r on r.id=s.retailer_id where s.retailer_id =1 ;
+        - Salida 
+            - Collecion de productos que aplica el descuento   
+            - [ { "product_id": 14, "retailer_id": 1, "pvp": 8.53, "descuento": 2.4737, "descuento_porcentaje": 29, "tipo_descuento": "mar" }, { "product_id": 32, "retailer_id": 1, "pvp": 5.56, "descuento": 1.6124, "descuento_porcentaje": 29, "tipo_descuento": "mar" }, { "product_id": 43, "retailer_id": 1, "pvp": 7.38, "descuento": 2.1402, "descuento_porcentaje": 29, "tipo_descuento": "mar" } ]
+    - ![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/calcularDescuento.png)
    - URL
         - Entrada   
         
@@ -122,4 +141,6 @@
 3.-python manage.py makemigrations
 4.-python manage.py migrate
 5.-manage.py dumpdata motor_descuento --exclude motor_descuento.Product --exclude motor_descuento.StockItem --indent 2  > db.json
-6.-
+6.-python manage.py createsuperuser admin/adminadmin
+manage.py loaddata descuento
+
