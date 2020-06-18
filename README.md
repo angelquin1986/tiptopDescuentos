@@ -48,7 +48,7 @@
 | hora_fin  | time  |  Hora fin de descuento |
  ### COLUMNA JSON CONF
  
-|key|tipo|Descripción
+|key|tipo|Descripción|
 |---|---|---|
 |product_id|integer|Código del producto, nulo si se requiere descuento por otros parámetros
 |retailer_id|[]|Lista de tiendas donde aplica la promoción
@@ -62,6 +62,39 @@
 |forma_pago|1(efectivo) 2(Visa) 3(Mastercard)|Dependiendo si la forma de pago es efectivo o tarjeta
 |codigo_aplicacion|String|Solo y solo tiene el codigo de verificacion 
 
+ ### PROCESOS DE DESCUENTO  REALIZADOS Y CON TEST
+ |Item|Realizado|Notas|
+|---|---|---|
+|1. Descuentos que aplican a una o varias categorías de una tienda especifica o de todas|SI||
+|2. Descuentos que aplican a una o varias subcategorías de una tienda especifica o de todas|SI||
+|3. Descuentos que aplican únicamente a uno o varios productos de una tienda en específico o de todas|SI||
+|4. Descuentos únicamente para clientes específicos|SI||
+|5. Descontar un porcentaje x en tu carrito de compras hasta y monto. (descuento del 30% hasta que el valor descantado llegue a los $200)|NO||
+|6. Descuento único para clientes prime - (prime es un modelo de suscripción exclusivo dentro del app)|SI||
+|7. Descuentos en todos los productos de una marca específicas|SI||
+|8. Descuentos de envíos gratis sin condiciones|NO|Nota :Es una configuracion difecten porque el motor esta hecho para descuentos sobre articulos|
+|9. Descuento de envío gratis luego de comprar un monto mínimo de productos de una marca en específico.|NO|Nota :Es una configuracion difecten porque el motor esta hecho para descuentos sobre articulos|
+|10. Descuentos de envíos gratis a partir de cierto monto en tu carrito de compras|NO|Nota :Es una configuracion difecten porque el motor esta hecho para descuentos sobre articulos|
+|11. Descuentos con las configuraciones anteriores que aplican según el día de la semana en la que se creó la orden.|SI||
+|12. Descuentos con las configuraciones anteriores que aplican según el día de la semana en se va a entregar la orden.|SI||
+|13. Descuentos con las configuraciones anteriores que únicamente se aplican cuando la orden tenga fecha de entrega para el mismo día de la creación de la orden|SI|Nota: el motor de descuentos recibe una sola fecha para validar si existe conf. Descuentos   en la fecha ingresada y también validar por dias.Si necesita validar una fecha o varias fechas de ingreso o entrega debe  otro microservicio que decida qué fecha debe mandar al motor para que el lo resuelva.|  
+ ### CONFIGURACIONES DE DESCUENTO  REALIZADOS Y CON TEST
+
+ |Item|Realizado|Notas|
+|---|---|---|
+|1.-Todo descuento aplicara un porcentaje definido como descuento sobre cada producto de la orden no sobre el valor final de la misma.|SI||
+|2. Los descuentos deben poderse configurar de tal forma que yo ingrese la prioridad de un descuento sobre otro y si un descuento se puede o no combinar con uno o más descuentos.|||
+|3. Los descuentos pueden configurarse para que se apliquen a todo el país en todas sus tiendas o en tiendas seleccionadas.|||
+|4. Los descuentos pueden configurarse para que se apliquen a toda una o varias ciudades para todas sus tiendas o en tiendas seleccionadas.|||
+|5. Los descuentos pueden configurarse para que se apliquen a toda uno o varios sectores de una ciudad para todas sus tiendas o en tiendas seleccionadas.|||
+|6. Que se pueda definir cuantas veces puede ocupar ese descuento un cliente |||
+|7. Que se pueda configurar cualquiera de los tipos de descuento para que se aplique según la forma de pago o la marca de tarjeta de crédito con la que cancela un cliente su orden.|SI||
+|8. Que la vigencia de un descuento se pueda definir desde una fecha hasta otra y que días de las semanas aplican durante esa vigencia,|SI||
+| 9. Que el descuento pueda activarse por horas es decir desde el primero de mayo al 5 de mayo desde las 3 y 30 hasta las 18 horas aplica este descuento.|SI||
+|10. Un descuento se puede marcar para que únicamente se active luego de agregar un código en la aplicación.|SI||
+|11. Se debe registrar en cada order item que descuento se aplico|SI||
+|12. Se debe registrar en cada orden el descuento que aplico |SI|Nota: el motor devuelve un dic con una estructura  que puede ser utlizada despues  para colocar en un order_item, order , etc|
+|13. Un descuento debe tener la capacidad de configurar hasta que monto acumulado de descuentos aplica. Ejemplo (yo configuro un 30% de descuentos en toda una tienda y como este descuento me lo patrocina cierta empresa externa me indica que el descuento debe estar activo hasta que la suma de todos los montos descontados en cada orden me llegue a un total de 5 mil dólares)|||  
 
 
  ### Test
@@ -76,6 +109,9 @@
         - Para validar code coverage utilizar Run with coverage de la herramienta Pycharm
         
 
+ ### API TEST
+   - URL
+        - Entrada   
         
         
 1.-instalar requirements.txt
