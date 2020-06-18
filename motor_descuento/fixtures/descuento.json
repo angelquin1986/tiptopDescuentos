@@ -16,18 +16,17 @@
         "monto_maximo_orden": -1,
         "es_cliente_prime": false,
         "brand_id": null,
-        "afecta_entrega_creacion": "c",
         "dia_promocion": null,
         "contador_descuentos": -1,
-        "forma_pago": -1,
+        "forma_pago": null,
         "codigo_aplicacion": null
       },
       "monto_maximo": null,
       "monto_actual": 0,
       "fecha_inicio": "2020-02-01",
       "fecha_fin": "2020-12-01",
-      "hora_inicio": "02:00",
-      "hora_fin": "19:00",
+      "hora_inicio": null,
+      "hora_fin": null,
       "prioridad": 2,
       "descuento": 10
     }
@@ -49,18 +48,17 @@
         "monto_maximo_orden": -1,
         "es_cliente_prime": false,
         "brand_id": null,
-        "afecta_entrega_creacion": "c",
         "dia_promocion": null,
         "contador_descuentos": -1,
-        "forma_pago": -1,
+        "forma_pago": null,
         "codigo_aplicacion": null
       },
       "monto_maximo": null,
       "monto_actual": 0,
       "fecha_inicio": "2020-02-01",
       "fecha_fin": "2020-12-01",
-      "hora_inicio": "02:00",
-      "hora_fin": "19:00",
+      "hora_inicio": null,
+      "hora_fin": null,
       "prioridad": 1,
       "descuento": 20
     }
@@ -84,18 +82,17 @@
         "monto_maximo_orden": -1,
         "es_cliente_prime": false,
         "brand_id": null,
-        "afecta_entrega_creacion": "c",
         "dia_promocion": null,
         "contador_descuentos": -1,
-        "forma_pago": -1,
+        "forma_pago": null,
         "codigo_aplicacion": null
       },
       "monto_maximo": null,
       "monto_actual": 0,
       "fecha_inicio": "2020-01-01",
       "fecha_fin": "2020-01-30",
-      "hora_inicio": "02:00",
-      "hora_fin": "19:00",
+      "hora_inicio": null,
+      "hora_fin": null,
       "prioridad": 4,
       "descuento": 15
     }
@@ -121,18 +118,17 @@
         "monto_maximo_orden": -1,
         "es_cliente_prime": false,
         "brand_id": null,
-        "afecta_entrega_creacion": "c",
         "dia_promocion": null,
         "contador_descuentos": -1,
-        "forma_pago": -1,
+        "forma_pago": null,
         "codigo_aplicacion": null
       },
       "monto_maximo": null,
       "monto_actual": 0,
       "fecha_inicio": "2019-01-01",
       "fecha_fin": "2019-01-30",
-      "hora_inicio": "02:00",
-      "hora_fin": "19:00",
+      "hora_inicio": null,
+      "hora_fin": null,
       "prioridad": 3,
       "descuento": 28
     }
@@ -155,18 +151,17 @@
         "monto_maximo_orden": -1,
         "es_cliente_prime": true,
         "brand_id": null,
-        "afecta_entrega_creacion": "c",
         "dia_promocion": null,
         "contador_descuentos": -1,
-        "forma_pago": -1,
+        "forma_pago": null,
         "codigo_aplicacion": null
       },
       "monto_maximo": null,
       "monto_actual": 0,
       "fecha_inicio": "2019-02-01",
       "fecha_fin": "2019-02-25",
-      "hora_inicio": "02:00",
-      "hora_fin": "19:00",
+      "hora_inicio": null,
+      "hora_fin": null,
       "prioridad": 3,
       "descuento": 41
     }
@@ -191,20 +186,164 @@
           4,
           5
         ],
-        "afecta_entrega_creacion": "c",
-        "dia_promocion": null,
+        "dia_promocion": [],
         "contador_descuentos": -1,
-        "forma_pago": -1,
+        "forma_pago": null,
         "codigo_aplicacion": null
       },
       "monto_maximo": null,
       "monto_actual": 0,
       "fecha_inicio": "2019-03-01",
       "fecha_fin": "2019-03-25",
-      "hora_inicio": "02:00",
-      "hora_fin": "19:00",
+      "hora_inicio": null,
+      "hora_fin": null,
       "prioridad": 5,
       "descuento": 29
+    }
+  },
+  {
+    "model": "motor_descuento.disccount",
+    "pk": 7,
+    "fields": {
+      "json_data": {
+        "product_id": [],
+        "retailer_id": [],
+        "category_id": [],
+        "sub_category_id": [
+        ],
+        "client_id": [],
+        "monto_maximo_orden": -1,
+        "es_cliente_prime": false,
+        "brand_id": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "dia_promocion": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "contador_descuentos": -1,
+        "forma_pago": null,
+        "codigo_aplicacion": null
+      },
+      "monto_maximo": null,
+      "monto_actual": 0,
+      "fecha_inicio": "2019-04-01",
+      "fecha_fin": "2019-04-25",
+      "hora_inicio": null,
+      "hora_fin": null,
+      "prioridad": 7,
+      "descuento": 29
+    }
+  },
+  {
+    "model": "motor_descuento.disccount",
+    "pk": 8,
+    "fields": {
+      "json_data": {
+        "product_id": [],
+        "retailer_id": [],
+        "category_id": [],
+        "sub_category_id": [
+        ],
+        "client_id": [],
+        "monto_maximo_orden": -1,
+        "es_cliente_prime": false,
+        "brand_id": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "dia_promocion": [],
+        "contador_descuentos": -1,
+        "forma_pago": null,
+        "codigo_aplicacion": null
+      },
+      "monto_maximo": null,
+      "monto_actual": 0,
+      "fecha_inicio": "2019-05-01",
+      "fecha_fin": "2019-05-25",
+      "hora_inicio": "02:00",
+      "hora_fin": "19:00",
+      "prioridad": 7,
+      "descuento": 29
+    }
+  },
+  {
+    "model": "motor_descuento.disccount",
+    "pk": 9,
+    "fields": {
+      "json_data": {
+        "product_id": [],
+        "retailer_id": [],
+        "category_id": [],
+        "sub_category_id": [
+        ],
+        "client_id": [],
+        "monto_maximo_orden": -1,
+        "es_cliente_prime": false,
+        "brand_id": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "dia_promocion": [],
+        "contador_descuentos": -1,
+        "forma_pago": null,
+        "codigo_aplicacion": "AQ1986"
+      },
+      "monto_maximo": null,
+      "monto_actual": 0,
+      "fecha_inicio": "2019-06-01",
+      "fecha_fin": "2019-06-28",
+      "hora_inicio": "02:00",
+      "hora_fin": "19:00",
+      "prioridad": 9,
+      "descuento": 29
+    }
+  },
+  {
+    "model": "motor_descuento.disccount",
+    "pk": 10,
+    "fields": {
+      "json_data": {
+        "product_id": [],
+        "retailer_id": [],
+        "category_id": [],
+        "sub_category_id": [
+        ],
+        "client_id": [],
+        "monto_maximo_orden": -1,
+        "es_cliente_prime": false,
+        "brand_id": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "dia_promocion": [],
+        "contador_descuentos": -1,
+        "forma_pago": 3,
+        "codigo_aplicacion": null
+      },
+      "monto_maximo": null,
+      "monto_actual": 0,
+      "fecha_inicio": "2019-07-01",
+      "fecha_fin": "2019-07-28",
+      "hora_inicio": "02:00",
+      "hora_fin": "19:00",
+      "prioridad": 10,
+      "descuento": 89
     }
   }
 ]

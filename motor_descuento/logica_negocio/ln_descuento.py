@@ -2,9 +2,7 @@
 @authos descuento logica de negocio
 """
 import copy
-import json
-
-from django.forms import model_to_dict
+from datetime import datetime
 
 from motor_descuento.modelo.modelo_cliente import ClientPrimeSuscription
 from motor_descuento.modelo.modelo_descuentos import Disccount
@@ -19,7 +17,8 @@ def obtener_descuento_list():
     return Disccount.objects.all()
 
 
-def resolver_descuento(fecha_actual, stock_item_list_parameter, client_id):
+def resolver_descuento(fecha_actual, stock_item_list_parameter, client_id, codigo_forma_pago,
+                       codigo_aplicacion_parametro):
     """
 
     :param fecha_inicio:
@@ -44,18 +43,24 @@ def resolver_descuento(fecha_actual, stock_item_list_parameter, client_id):
         'prioridad').values())
     product_descuento_list = []
     for descuento in discount_list:
+        json_data = descuento['json_data']
+        cliente_prime = validar_cliente_prime(client_id, json_data['es_cliente_prime'])
+        activa_promocion_dia = validar_dia_semana_promocion(fecha_actual, json_data['dia_promocion'])
+        activa_promocion_hora = validar_hora_aplicacion(descuento['hora_inicio'], descuento['hora_fin'])
+        activa_codigo_aplicacion = validar_codigo_aplicacion_descuento(codigo_aplicacion_parametro,
+                                                                       json_data['codigo_aplicacion'])
+        activa_forma_pago_descuento = validar_forma_pago_descuento(codigo_forma_pago, json_data['forma_pago'])
+        # validaciones de cliente primer y dia por promocion de una fecha especifica
+        if stock_item_list and cliente_prime and activa_promocion_dia and activa_promocion_hora and activa_codigo_aplicacion and activa_forma_pago_descuento:
 
-        if (stock_item_list):
-            json_data = descuento['json_data']
-            cliente_prime = validar_cliente_prime(client_id, json_data['es_cliente_prime'])
             # cliente
-            if json_data['product_id'] != None and len(json_data['product_id']) > 0 and cliente_prime:
+            if json_data['product_id'] != None and len(json_data['product_id']) > 0:
                 product_list = descuento_por_producto(json_data['product_id'], json_data['retailer_id'],
                                                       stock_item_list,
                                                       product_db_list, descuento['descuento'])
                 product_descuento_list.extend(product_list)
                 # categoria
-            if json_data['category_id'] != None and len(json_data['category_id']) > 0 and cliente_prime:
+            if json_data['category_id'] != None and len(json_data['category_id']) > 0:
                 product_list = descuento_por_categoria(json_data['category_id'], json_data['retailer_id'],
                                                        stock_item_list,
                                                        product_db_list, descuento['descuento'])
@@ -68,12 +73,12 @@ def resolver_descuento(fecha_actual, stock_item_list_parameter, client_id):
                                                      product_db_list, descuento['descuento'])
                 product_descuento_list.extend(product_list)
                 # cliente
-            if json_data['client_id'] != None and len(json_data['client_id']) > 0 and cliente_prime:
+            if json_data['client_id'] != None and len(json_data['client_id']) > 0:
                 product_list = descuento_por_cliente(json_data['client_id'], stock_item_list,
                                                      product_db_list, descuento['descuento'], client_id)
                 product_descuento_list.extend(product_list)
                 # marca
-            if json_data['brand_id'] != None and len(json_data['brand_id']) > 0 and cliente_prime:
+            if json_data['brand_id'] != None and len(json_data['brand_id']) > 0:
                 product_list = descuento_por_marca(json_data['brand_id'], stock_item_list,
                                                    product_db_list, descuento['descuento'])
                 product_descuento_list.extend(product_list)
@@ -118,6 +123,80 @@ def construir_objeto_final_descuento(product_descuento_list, stock_item_list_par
             }
             list_descuentos.append(descuento_obj)
     return list_descuentos
+
+
+def validar_forma_pago_descuento(codigo_forma_pago, descuento_forma_pago):
+    """
+    validar forma de pago para una conf descuento
+    :param codigo_forma_pago:
+    :param descuento_forma_pago:
+    :return:
+    """
+    if descuento_forma_pago:
+        if codigo_forma_pago == descuento_forma_pago:
+            return True
+        else:
+            return False
+    else:
+        return True
+
+
+def validar_codigo_aplicacion_descuento(codigo_aplicacion, descuento_codigo_aplicacion):
+    """
+    validar que exista con digo de aplicacion
+    :param codigo_aplicacion:
+    :param descuento_dia_promocion:
+    :return:
+    """
+    if descuento_codigo_aplicacion:
+        if codigo_aplicacion == descuento_codigo_aplicacion:
+            return True
+        else:
+            return False
+    else:
+        return True
+
+
+def validar_hora_aplicacion(hora_inicio, hora_fin):
+    """
+    validar si se puede usar   la conf descuentos por hora inicio o fin
+    :param hora_inicio:
+    :param hora_fin:
+    :return:
+    """
+    if hora_inicio and hora_inicio:
+        hora_actual = datetime.now().time()
+        # h_inicio = datetime.strptime(hora_inicio, '%H::%M::%S').time()
+        # h_fin = datetime.strptime(hora_fin, '%H::%M::%S').time()
+        # validar si esta dentro del rango de horas
+        if hora_actual >= hora_inicio and hora_actual <= hora_fin:
+            return True
+        else:
+            return False
+    else:
+        return True
+
+
+def validar_dia_semana_promocion(fecha_actual, descuento_dia_promocion_list):
+    """
+    Valida si se aplica un descuento por dia  segun el parametro
+    :param fecha_actual:
+    :param descuento_dia_promocion_list:
+    :return:
+    """
+    # tomar la fecha en date
+    fecha_actual_date = datetime.strptime(fecha_actual, '%Y-%m-%d').date()
+    # tomar el dia de la semana en formato integer
+    dia_fechaParametro = fecha_actual_date.weekday()
+    # validar si  el dia de la promcion esta activo
+    if descuento_dia_promocion_list:
+        dias_list = list(filter(lambda x: x == dia_fechaParametro, descuento_dia_promocion_list))
+        if len(dias_list) > 0:
+            return True
+        else:
+            return False
+    else:
+        return True
 
 
 def validar_cliente_prime(cliente_id_parameter, descuento_es_cliente_prime):
