@@ -112,7 +112,7 @@
 ### LOGIOCA DE NEGOCIO
    - La logica de negocio para el motor de descuento se encuentra en   motor_descuento/logica_negocio/ln_descuento.py
  ![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/ln.png)
- ### API TEST
+ ### API REST
     Se entrega los siguientes rest
    - http://127.0.0.1:8000/calcular-descuento
         - Api encargado de calcular y retornar los  datos de descuento por stock item    dependiendo de la configuración
@@ -146,12 +146,11 @@
             - { "product_id": 101099, "retailer_id": 1, "pvp": 6.27, "descuento": 1.8183, "descuento_porcentaje": 29, "tipo_descuento": "mar" }, { "product_id": 101512, "retailer_id": 1, "pvp": 6.73, "descuento": 1.9517, "descuento_porcentaje": 29, "tipo_descuento": "mar" }]
         - ![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/descuentoxtienda.png)
         
-        
-1.-instalar requirements.txt
-2.- postgres version 11.8
-3.-python manage.py makemigrations
-4.-python manage.py migrate
-5.-manage.py dumpdata motor_descuento --exclude motor_descuento.Product --exclude motor_descuento.StockItem --indent 2  > db.json
-6.-python manage.py createsuperuser admin/adminadmin
-manage.py loaddata descuento
+### Algunos Comandos  
+-   pip install -r requirements.txt instalar dependencias 
+-   python manage.py makemigrations ( validar cambios en los modelos)
+-   python manage.py migrate (migrar modelo a la base de datos)
+-   manage.py dumpdata motor_descuento --exclude motor_descuento.Product --exclude motor_descuento.StockItem --indent 2  > db.json (copiar la data de la db en file json)
+-   python manage.py createsuperuser admin/adminadmin (crear un super usuario en django admin)
+-   manage.py loaddata descuento (cargar la data desde fictures a la base de datos)
 
