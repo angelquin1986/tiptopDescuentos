@@ -56,3 +56,16 @@ def obtener_descuento(request):
                                                 data['codigo_forma_pago'], data['codigo_aplicacion'])
     print("")
     return Response(resultado)
+
+
+@api_view(['POST'])
+def obtener_descuentox_retailer(request):
+    """
+    Obtener descuentos por retailer
+    :return:
+    """
+    data = request.data
+
+    resultado = ln_descuento.resolver_descuento_tienda(data['fecha_actual'], data['retailer_id'])
+    print("")
+    return Response(resultado)

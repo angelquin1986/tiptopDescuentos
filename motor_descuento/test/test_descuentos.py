@@ -133,3 +133,13 @@ class TestDescuentos(TestCase):
         codigo_forma_pago = 3
         # subcategoria
         ln_descuento.resolver_descuento('2019-07-16', self.stock_item, cliente_id_no_prime, codigo_forma_pago, None)
+
+    @pytest.mark.django_db
+    @override_settings(DEBUG=True)
+    def test_descueto_x_tienda(self):
+        """
+        Probar los descuentos de una tienda especifica
+        :return:
+        """
+        retailer_id = 1
+        ln_descuento.resolver_descuento_tienda('2019-07-16', retailer_id)

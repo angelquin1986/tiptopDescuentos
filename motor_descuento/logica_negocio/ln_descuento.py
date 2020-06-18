@@ -7,6 +7,7 @@ from datetime import datetime
 from motor_descuento.modelo.modelo_cliente import ClientPrimeSuscription
 from motor_descuento.modelo.modelo_descuentos import Disccount
 from motor_descuento.modelo.modelo_productos import Product
+from motor_descuento.modelo.modelo_retailer import StockItem
 
 
 def obtener_descuento_list():
@@ -17,12 +18,15 @@ def obtener_descuento_list():
     return Disccount.objects.all()
 
 
-def resolver_descuento(fecha_actual, stock_item_list_parameter, client_id, codigo_forma_pago,
-                       codigo_aplicacion_parametro):
+def motor_descuento(fecha_actual, stock_item_list_parameter, client_id, codigo_forma_pago,
+                    codigo_aplicacion_parametro):
     """
-
-    :param fecha_inicio:
-    :param fecha_fin:
+    metodo principal para resilver los descuentos mediante el motor construido
+    :param fecha_actual:
+    :param stock_item_list_parameter:
+    :param client_id:
+    :param codigo_forma_pago:
+    :param codigo_aplicacion_parametro:
     :return:
     """
     # colocamos los datos principales a  los articulos
@@ -89,6 +93,30 @@ def resolver_descuento(fecha_actual, stock_item_list_parameter, client_id, codig
     return result
 
 
+def resolver_descuento(fecha_actual, stock_item_list_parameter, client_id, codigo_forma_pago,
+                       codigo_aplicacion_parametro):
+    """
+    Resuelve el descuento   de una lista de stock parametro enviada
+    :param fecha_inicio:
+    :param fecha_fin:
+    :return:
+    """
+
+    return motor_descuento(fecha_actual, stock_item_list_parameter, client_id, codigo_forma_pago,
+                           codigo_aplicacion_parametro)
+
+
+def resolver_descuento_tienda(fecha_actual, retailer_id):
+    """
+    Resuelve el descuento   de una una tienda especifica enviada como parametro
+    :param fecha_inicio:
+    :param fecha_fin:
+    :return:
+    """
+    stock_item_list = list(StockItem.objects.filter(retailer_id=retailer_id).values('retailer_id', 'product_id'))
+    return motor_descuento(fecha_actual, stock_item_list, None, None, None)
+
+
 def construir_objeto_final_descuento(product_descuento_list, stock_item_list_parameter):
     """
     Contruir un objeto general con los articulos que aplica y no aplica descuentos
@@ -132,7 +160,7 @@ def validar_forma_pago_descuento(codigo_forma_pago, descuento_forma_pago):
     :param descuento_forma_pago:
     :return:
     """
-    if descuento_forma_pago:
+    if codigo_forma_pago and descuento_forma_pago:
         if codigo_forma_pago == descuento_forma_pago:
             return True
         else:
@@ -148,7 +176,7 @@ def validar_codigo_aplicacion_descuento(codigo_aplicacion, descuento_codigo_apli
     :param descuento_dia_promocion:
     :return:
     """
-    if descuento_codigo_aplicacion:
+    if codigo_aplicacion and descuento_codigo_aplicacion:
         if codigo_aplicacion == descuento_codigo_aplicacion:
             return True
         else:
@@ -207,7 +235,7 @@ def validar_cliente_prime(cliente_id_parameter, descuento_es_cliente_prime):
     :return:
     """
     # solo si el descuento es para clientes prime
-    if (descuento_es_cliente_prime):
+    if (cliente_id_parameter and descuento_es_cliente_prime):
         # buscar el cliente en base y validar si tiene bandera prime
         client_prime__subcripcion = ClientPrimeSuscription.objects.filter(client_id=cliente_id_parameter,
                                                                           suscription_state=True).values_list('id',

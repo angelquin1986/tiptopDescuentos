@@ -26,7 +26,7 @@ class Command(BaseCommand):
         for retailer in retailer_id_list:
             i = 0
             producto_id_list_temp = []
-            while i < 10000:
+            while i < 4999:
                 producto_id = random.choice(producto_id_list)
                 product_search = list(filter(lambda x: x == producto_id, producto_id_list_temp))
                 # print(i)
@@ -38,5 +38,3 @@ class Command(BaseCommand):
                     product_retailer_list.append(stock_item)
                     i = i + 1
         ln_articulo.crear_retailer_product_list(product_retailer_list)
-
-

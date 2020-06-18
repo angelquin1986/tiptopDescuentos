@@ -14,4 +14,6 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url('retailer/list', views.retailer_list, name='index'),
     url('calcular-descuento', views.obtener_descuento, name='calcular-descuento'),
+    url('descuento-retailer', views.obtener_descuentox_retailer, name='calcular-descuento-retailer'),
+
 ]

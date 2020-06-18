@@ -115,7 +115,7 @@
  ### API TEST
     Se entrega los siguientes rest
    - http://127.0.0.1:8000/calcular-descuento
-        - Api encargado de calcular y retornar los  datos de decuento    dependiendo de la configuración
+        - Api encargado de calcular y retornar los  datos de descuento por stock item    dependiendo de la configuración
         - Tipo POST
         - Formato Entra
             - Ejemplo: { "fecha_actual":"2019-04-10", "stock_item":[ { "product_id":14, "retailer_id":1 }, { "product_id":32, "retailer_id":1 }, { "product_id":43, "retailer_id":1 } ], "cliente_id":1, "codigo_forma_pago":1, "codigo_aplicacion":null }
@@ -132,8 +132,19 @@
             - Collecion de productos que aplica el descuento   
             - [ { "product_id": 14, "retailer_id": 1, "pvp": 8.53, "descuento": 2.4737, "descuento_porcentaje": 29, "tipo_descuento": "mar" }, { "product_id": 32, "retailer_id": 1, "pvp": 5.56, "descuento": 1.6124, "descuento_porcentaje": 29, "tipo_descuento": "mar" }, { "product_id": 43, "retailer_id": 1, "pvp": 7.38, "descuento": 2.1402, "descuento_porcentaje": 29, "tipo_descuento": "mar" } ]
     - ![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/calcularDescuento.png)
-   - URL
-        - Entrada   
+   -  http://127.0.0.1:8000/descuento-retailer
+   -  Api encargado de calcular y retornar los  datos de descuento   por  tienda 
+        - Tipo POST
+        - Formato Entra
+            - Ejemplo: { "fecha_actual":"2019-04-10", "retailer_id":1 }
+        - Formatos:  
+            - fecha_actual : "YYYY-MM-DD" :
+            - retailer_id :  id de la tienda
+        - Nota:  validar en base de datos los codigos de las tiendas en retailer
+        - Salida 
+            - Collecion de productos que aplica el descuento   
+            - { "product_id": 101099, "retailer_id": 1, "pvp": 6.27, "descuento": 1.8183, "descuento_porcentaje": 29, "tipo_descuento": "mar" }, { "product_id": 101512, "retailer_id": 1, "pvp": 6.73, "descuento": 1.9517, "descuento_porcentaje": 29, "tipo_descuento": "mar" }]
+        - ![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/descuentoxtienda.png)
         
         
 1.-instalar requirements.txt

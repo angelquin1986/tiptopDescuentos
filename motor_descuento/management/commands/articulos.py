@@ -18,7 +18,7 @@ class Command(BaseCommand):
         brand_id_list = [1, 2, 3, 4, 5]
         product_list = []
         is_create = False
-        for numero in range(1, 100000):
+        for numero in range(1, 5000):
             product = Product(name='Producto_' + str(numero), description='Producto_' + str(numero), tax_rate=12)
             product.brand_id = random.choice(brand_id_list)
             product_list.append(product)
