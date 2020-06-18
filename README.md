@@ -32,7 +32,7 @@
  ### Configuración
    - En el archivo descuentos/settings.py modificar los datos de la configuracion de la base de datos (DATABASES)
  ### Modelo de datos
-![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/modelo.png)
+![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/modelo.jpg)
  ### Modelo de datos Descuentos
    - Se trabaja con un modelo simple donde por la configuración dinamica  que puede tener los descuentos se toma la decision de tener parametrizado varios de los campos en formato Json
         
@@ -98,6 +98,7 @@
 
 
  ### Test
+ ![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/test.png)
    - Los test  del motor estan en el path motor_descuento/test/test_descuento.py
    - Para poder realizar los test se utiliza los fixtures :
         - motor_descuento/fixtures/db.json(Data de todo el modelo de datos con exepcion de producto,stockItem y conf. descuento)
@@ -108,7 +109,9 @@
         - Nota: Estos metodos  y los fixtures se ejecutan en test_descuento  metodo setUp antes de ejecutar los test
         - Para validar code coverage utilizar Run with coverage de la herramienta Pycharm
         
-
+### LOGIOCA DE NEGOCIO
+   - La logica de negocio para el motor de descuento se encuentra en   motor_descuento/logica_negocio/ln_descuento.py
+ ![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/ln.png)
  ### API TEST
    - URL
         - Entrada   
