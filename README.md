@@ -32,7 +32,7 @@
  ### Configuración
    - En el archivo descuentos/settings.py modificar los datos de la configuracion de la base de datos (DATABASES)
  ### Modelo de datos
-![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/blob/master/archivos/modelo.png)                 
+![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/modelo.png)                 
  ### Test
    - Los test  del motor estan en el path motor_descuento/test/test_descuento.py
    - Para poder realizar los test se utiliza los fixtures :
