@@ -32,7 +32,38 @@
  ### Configuración
    - En el archivo descuentos/settings.py modificar los datos de la configuracion de la base de datos (DATABASES)
  ### Modelo de datos
-![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/modelo.png)                 
+![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/modelo.png)
+ ### Modelo de datos Descuentos
+   - Se trabaja con un modelo simple donde por la configuración dinamica  que puede tener los descuentos se toma la decision de tener parametrizado varios de los campos en formato Json
+        
+| Columna  | Tipo Data  |  Descripción |
+|---|---|---|
+| descuento_id  | integer  |  pk  |
+|  json_data | Json   | datos de conf de los descuentos por articulo  |
+| monto_maximo  |  Double |  monto maximo descuento |
+| monto_actual  | Double  | monto artual descuento  |
+| fecha_inicio  | date  | Fecha inicio del descuento mandatorio  |
+| fecha_fin  | date  | Fecha fin del descuento mandatorio |
+| hora_inicio  | time  | Hora inicio del descuento  |
+| hora_fin  | time  |  Hora fin de descuento |
+ ### COLUMNA JSON CONF
+ 
+|key|tipo|Descripción
+|---|---|---|
+|product_id|integer|Código del producto, nulo si se requiere descuento por otros parámetros
+|retailer_id|[]|Lista de tiendas donde aplica la promoción
+|category_id|[]|Lista de categorias donde aplica la promoción
+|sub_category_id|[]|Lista de sub categorias donde aplica la promoción
+|client_id|integer|Código del cliente al que se le aplica la promoción
+|monto_maximo_orden|double|Monto máximo a aplicar descuento , - si es indefinido
+|es_cliente_prime|Boolean|Válida si se aplica a un cliente Prime
+|brand_id|integer|Marca del producto al que se le aplica el descuento
+|contador_descuentos|integer|Número de veces que  puede ocupar el descuento  si es -1 es indefinido(por cliente)
+|forma_pago|1(efectivo) 2(Visa) 3(Mastercard)|Dependiendo si la forma de pago es efectivo o tarjeta
+|codigo_aplicacion|String|Solo y solo tiene el codigo de verificacion 
+
+
+
  ### Test
    - Los test  del motor estan en el path motor_descuento/test/test_descuento.py
    - Para poder realizar los test se utiliza los fixtures :
