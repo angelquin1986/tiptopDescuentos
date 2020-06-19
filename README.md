@@ -8,7 +8,7 @@
  - django 3.0.7
  - djangorestframework
  - Pycharm Profesional 2019.2
- 
+ - drf-yasg (swagger)
  #### -Postgresql 11.8-1
  ### Descripción 
    - Motor de descuentos realizado en python aplicado tdd, code coverage :
@@ -112,7 +112,7 @@
         - Nota: Estos metodos  y los fixtures se ejecutan en test_descuento  metodo setUp antes de ejecutar los test
         - Para validar code coverage utilizar Run with coverage de la herramienta Pycharm
         
-### LOGIOCA DE NEGOCIO
+### LOGICA DE NEGOCIO
    - La logica de negocio para el motor de descuento se encuentra en   motor_descuento/logica_negocio/ln_descuento.py
  ![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/ln.png)
  ### API REST
@@ -148,6 +148,10 @@
             - Collecion de productos que aplica el descuento   
             - { "product_id": 101099, "retailer_id": 1, "pvp": 6.27, "descuento": 1.8183, "descuento_porcentaje": 29, "tipo_descuento": "mar" }, { "product_id": 101512, "retailer_id": 1, "pvp": 6.73, "descuento": 1.9517, "descuento_porcentaje": 29, "tipo_descuento": "mar" }]
         - ![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/descuentoxtienda.png)
+ ### DOCUMENTACION API REST
+   - La docuemntacion se puede ver mediante el api de swagger(http://127.0.0.1:8000/swagger/)
+   - ![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/swagger.png)
+ 
 ### CONFIGURACION PRONT END
    - url  front end http://127.0.0.1:8000/descuentos
    - El front end se realizo con  :
