@@ -145,7 +145,24 @@
             - Collecion de productos que aplica el descuento   
             - { "product_id": 101099, "retailer_id": 1, "pvp": 6.27, "descuento": 1.8183, "descuento_porcentaje": 29, "tipo_descuento": "mar" }, { "product_id": 101512, "retailer_id": 1, "pvp": 6.73, "descuento": 1.9517, "descuento_porcentaje": 29, "tipo_descuento": "mar" }]
         - ![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/descuentoxtienda.png)
-        
+### CONFIGURACION PRONT END
+   - url  front end http://127.0.0.1:8000/descuentos
+   - El front end se realizo con  :
+        - vue.js
+        - vietify framework
+        - django templates
+        - django api rest
+   - El mismo muestra las configuraciones actuales de la base de datos.
+   - ![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/frontEnd.png)
+### FALTANTES
+   - Por motivo tiempo no se puedo terminar con el front en, el mismo que por el momento  solo muestra las configuraciones , pero  no persiste ni valida todos los casos para guardar las configuraciones.
+   - En el caso de que se requiera  persistir una configuracion la forma mas facil el leer la documentacion de Columna Json Congf y poder crear un fixture siempre teniendo en cuenta las conbinaciones que debew tomar para una configuracion correcta de descuento.
+   -  Un ejemplo ode fixtures para almacenar conf, descuento esta en  motor_descuento\fixtures\descuento.json
+   - Para correr con fixture se debe ejecutar el comando    manage.py loaddata nombre_fixture.py
+   - Conf descuento Faltantes.
+       - Descuentos por  envio gratis (Este descuento se clasifica como tipo de descuento y debe ser parametrizado en la tabla como un tipo mas, por el momento solo articulos)
+       - Descuentos  relacionados, por motivo tiempo no se desarrollo esta funcionalidad
+       - Pruebas de estres con  concurrecia de usarios ( Por motivo tiempo falta de desarrollar.)    
 ### Algunos Comandos  
 -   pip install -r requirements.txt instalar dependencias 
 -   python manage.py makemigrations ( validar cambios en los modelos)

@@ -1,0 +1,2 @@
+Vue.use(Vuetify, {});
+

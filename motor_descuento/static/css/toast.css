@@ -1,0 +1,65 @@
+.toast {
+    background-color: transparent !important;
+    padding: 0px 0px !important;
+    display: inline !important;
+
+}
+
+body .ui-messages.ui-messages-success {
+    background-color: #b7d8b7;
+
+}
+
+body .ui-messages.ui-messages-error {
+    background-color: #f8b7bd;
+
+}
+
+body .ui-messages.ui-messages-info {
+    background-color: #ADD8E6;
+}
+
+body .ui-messages.ui-messages-warn {
+    background-color: #fff3cd;
+}
+
+body .ui-messages {
+    display: block;
+    transform: translateY(0px);
+    opacity: 1;
+    padding: 1em;
+    margin: 1em 0;
+    border: 0 none;
+    color: #212121;
+    border-radius: 3px;
+}
+
+body .ui-widget {
+
+    font-family: "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+
+}
+
+.ui-messages {
+
+    border: 1px solid;
+    margin: .5em 0;
+    padding: 1em 1em 1em .5em;
+    position: relative;
+
+}
+
+.ui-widget * {
+
+    box-sizing: border-box;
+
+}
+
+.ui-messages .ui-messages-summary {
+
+    font-weight: 700;
+    margin-left: .25em;
+
+}

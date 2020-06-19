@@ -31,9 +31,20 @@ class DisccountViewSet(viewsets.ModelViewSet):
 
 
 @api_view(['GET', ])
+def descuentos_list(request):
+    """
+    List de conf desceuntos
+    """
+    if request.method == 'GET':
+        descuentos_list = list(Disccount.objects.all())
+        serialized_obj = [model_to_dict(descuento) for descuento in descuentos_list]
+        return Response(serialized_obj)
+
+
+@api_view(['GET', ])
 def retailer_list(request):
     """
-    List all code snippets, or create a new snippet.
+    Lista de tiendas
     """
     if request.method == 'GET':
         retailer_list = list(Retailer.objects.all())

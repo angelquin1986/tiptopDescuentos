@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}<br><br><br><br>
+    <div id="frm-descuento">
+        <v-app>
+            <v-card>
+                <template><br><br><br></template>
+                <v-container fluid>
+                    <v-row class='mb-6'>
+                        <v-simple-table fixed-header height="600px" light class="table-comprobantes">
+                            <template v-slot:default>
+                                <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>JsonData</th>
+                                    <th>descuento</th>
+                                    <th>monto_maximo</th>
+                                    <th>monto_actual</th>
+                                    <th>fecha_inicio</th>
+                                    <th>fecha_fin</th>
+                                    <th>hora_inicio</th>
+                                    <th>hora_fin</th>
+                                    <th>prioridad</th>
+                                    <th>
+                                        <label>
+                                            <input type="checkbox" class="filled-in reset-checkbox"
+                                            />
+                                        </label>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="item in listConfDesc" :key="item.index">
+                                    <td v-html="item.id"></td>
+                                    <td v-html="item.json_data"></td>
+                                    <td v-html="item.descuento"></td>
+                                    <td v-html="item.monto_maximo"></td>
+                                    <td v-html="item.monto_actual"></td>
+                                    <td v-html="item.fecha_inicio"></td>
+                                    <td v-html="item.fecha_fin"></td>
+                                    <td v-html="item.hora_inicio"></td>
+                                    <td v-html="item.hora_fin"></td>
+                                    <td v-html="item.prioridad"></td>
+                                    <td>
+                                        <label>
+                                            seleccionar
+                                        </label>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </template>
+                        </v-simple-table>
+                    </v-row>
+
+                </v-container>
+            </v-card>
+        </v-app>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{% static "js/main.js" %}"></script>
+    <script src="{% static "descuentos/rest_descuento.js" %}"></script>
+    <script src="{% static "descuentos/vue_descuento.js" %}"></script>
+    <script src="{% static "descuentos/main_descuento.js" %}"></script>
+
+
+{% endblock %}
+{% block _css %}
+    <link rel="{% static "descuentos/descuentos.css" %}">
+{% endblock %}

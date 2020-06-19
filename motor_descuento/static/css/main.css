@@ -1,0 +1,23 @@
+
+.block-ui {
+    background: rgba(0, 0, 0, .7);
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+
+/*.mdc-top-app-bar{*/
+/*    background-color: #1976d2 !important;*/
+/*}*/
+.mdc-top-app-bar{
+    background-color: #e2993a !important;
+}
+
+.v-application .primary {
+    background-color: #e2993a !important;
+}
