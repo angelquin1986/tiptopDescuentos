@@ -111,6 +111,7 @@
         - motor_descuento/test/util_test/stok_items.
         - Nota: Estos metodos  y los fixtures se ejecutan en test_descuento  metodo setUp antes de ejecutar los test
         - Para validar code coverage utilizar Run with coverage de la herramienta Pycharm
+        ![alt text](https://raw.githubusercontent.com/angelquin1986/tiptopDescuentos/master/archivos/coverage.png)
         
 ### LOGICA DE NEGOCIO
    - La logica de negocio para el motor de descuento se encuentra en   motor_descuento/logica_negocio/ln_descuento.py
