@@ -4,7 +4,7 @@
 ### Autor :Angel Quingaluisa
 
 ##Requerimientos
-#### -Lenguage Python 3.8
+#### -Lenguage Python 3.7
  - django 3.0.7
  - djangorestframework
  - Pycharm Profesional 2019.2
@@ -16,15 +16,18 @@
         - Clonar el proyecto
         - Crear un entorno virtual
         - Ejecutar  pip install -r requirements.txt( si instalan en  windows validar el compilador C++ por libreria de postresql)
+        - En caso de error actualizar pip(necesario 20.1.1<) con el comando : pip install --upgrade pip
         
  ### Data Pre Cargada
-   - Se adjunto en la raiz del proyectto el respaldo de la base de datos db.slq
+   - Se adjunto en la raiz del proyecto el respaldo de la base de datos bk.slq
    - En el caso de no restaurar se debe utilizar
+        - Crear en postgres la bb con nombre tipti
         - Ejecutar manage.py makemigrations
         - Ejecutar manage.py migrate   
         - Los fixtures :
             - motor_descuento/fixtures/db.json(Data de todo el modelo de datos con exepcion de producto,stockItem y conf. descuento)
             - motor_descuento/fixtures/descuento.json(Data de el modelo de conf. descuentos).
+            - comandos manage.py loaddata db/descuento
         - Comands :
             - motor_descuento/management/commands/articulos.py
             - motor_descuento/management/commands/retailer_articulos.py
@@ -170,4 +173,4 @@
 -   manage.py dumpdata motor_descuento --exclude motor_descuento.Product --exclude motor_descuento.StockItem --indent 2  > db.json (copiar la data de la db en file json)
 -   python manage.py createsuperuser admin/adminadmin (crear un super usuario en django admin)
 -   manage.py loaddata descuento (cargar la data desde fictures a la base de datos)
-
+-   manage.py runserver 8000 (ejecutar el proyecto)
